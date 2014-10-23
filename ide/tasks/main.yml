@@ -3,6 +3,7 @@
 - include: ppa_gitcore.yml
 - include: ide.yml
 - include: rails.yml
+- include: phantomjs.yml
 
 - name: install some global node packages
   npm: name={{item}} global=yes

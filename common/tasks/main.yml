@@ -36,4 +36,3 @@
 - name: initial commit
   command: etckeeper commit "Ansible commit"
   ignore_errors: yes
-

@@ -1,3 +1,0 @@
----
-- name: nginx
-  apt: name=nginx

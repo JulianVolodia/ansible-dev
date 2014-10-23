@@ -1,3 +1,0 @@
----
-- name: monit
-  apt: name=monit

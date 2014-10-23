@@ -1,7 +1,0 @@
----
-- name: redis
-  apt: name=redis-server
-
-- name: restart redis
-  shell: service redis-server restart
-

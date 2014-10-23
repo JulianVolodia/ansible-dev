@@ -1,9 +1,0 @@
----
-- name: install rvm
-  sudo: no
-  shell: curl -L https://get.rvm.io | bash -s stable --autolibs=enabled -- --ignore-dotfiles creates=~/.rvm
-
-- name: build {{ruby}}
-  sudo: no
-  shell: ~/.rvm/bin/rvm install {{ruby}}
-  when: ruby is defined

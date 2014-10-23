@@ -12,21 +12,14 @@
       config.vm.network :private_network, ip: '192.168.1.1'
 
       config.vm.hostname = 'dev'
-      config.vm.synced_folder '.', '/home/vagrant/source', :nfs => true
-      config.vm.synced_folder '~/.ssh', '/home/vagrant/ssh'
-      config.vm.synced_folder '~/dotfiles', '/home/vagrant/dotfiles'
 
       config.vm.provider :virtualbox do |vb|
-        vb.customize ['modifyvm', :id, '--name', 'development', '--cpus', '1', '--memory', 512]
+        vb.customize ['modifyvm', :id, '--name', 'dev', '--cpus', '1', '--memory', 512]
       end
 
       config.vm.provision :ansible do |ansible|
         ansible.playbook = 'site.yml'
-        ansible.verbose = true
-        # ansible.host = 'default' default value
       end
-
-      config.vm.provision :shell, :path => 'roles/install.sh'
     end
 
 ## Example site.yml

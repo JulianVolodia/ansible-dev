@@ -1,3 +1,0 @@
----
-- name: haproxy
-  apt: name=haproxy

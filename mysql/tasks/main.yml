@@ -1,8 +1,0 @@
----
-- name: install mysql packages
-  apt: name={{item}}
-  with_items:
-    - mysql-server
-    - mysql-client
-    - libmysqlclient-dev
-    - python-mysqldb

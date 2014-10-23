@@ -1,6 +1,0 @@
----
-- name: memcached
-  apt: name={{item}}
-  with_items:
-    - memcached 
-    - libmemcached-dev
