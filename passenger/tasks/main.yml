@@ -1,0 +1,20 @@
+---
+- name: ruby dependencies
+  apt: name={{item}}
+  with_items:
+    - python-pycurl
+    - python-software-properties
+    - apt-transport-https
+    - ca-certificates
+
+- name: add keys
+  shell: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+
+- name: set the passenger source
+  copy: src=passenger.list dest=/etc/apt/sources.list.d/passenger.list mode=0600
+
+- name: install packages
+  apt: name={{item}} update_cache=yes
+  with_items:
+    - nginx-extras
+    - passenger
