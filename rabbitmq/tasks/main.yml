@@ -1,0 +1,15 @@
+---
+- name: dependencies
+  apt: name={{item}}
+  with_items:
+    - python-pycurl
+    - python-software-properties
+
+- name: rabbit keys
+  apt_key: url=http://www.rabbitmq.com/rabbitmq-signing-key-public.asc state=present
+
+- name: rabbit repo
+  apt_repository: repo='deb http://www.rabbitmq.com/debian/ testing main'
+
+- name: install rabbit packages
+  apt: name=rabbitmq-server update_cache=yes

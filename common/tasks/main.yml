@@ -21,6 +21,12 @@
 - name: install git
   apt: name=git
 
+- name: initialize git
+  command: git config --global user.email "jon@doveston.me.uk"
+
+- name: initialize git
+  command: git config --global user.name "Jon Doveston"
+
 - name: install etckeeper
   apt: name=etckeeper
 

@@ -1,0 +1,9 @@
+---
+- name: install openjdk
+  apt: name=openjdk-7-jre-headless
+
+- name: download elasticsearch
+  get_url: url=https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-{{version}}.deb dest=~/elasticsearch-{{version}}.deb
+
+- name: install elasticsearch
+  shell: dpkg -i ~/elasticsearch-{{version}}.deb creates=/etc/elasticsearch

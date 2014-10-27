@@ -1,0 +1,15 @@
+---
+- name: dependencies
+  apt: name={{item}}
+  with_items:
+    - python-pycurl
+    - python-software-properties
+
+- name: 10gen keys
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+- name: 10gen repo
+  apt_repository: repo='deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'
+
+- name: install mongodb packages
+  apt: name=mongodb-10gen update_cache=yes

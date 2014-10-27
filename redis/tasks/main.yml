@@ -1,0 +1,3 @@
+---
+- name: redis
+  apt: name=redis-server
