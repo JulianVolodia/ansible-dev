@@ -1,0 +1,25 @@
+---
+- name: dependencies
+  apt: name={{item}}
+  with_items:
+    - python-pycurl
+    - python-software-properties
+    - apt-transport-https
+
+- name: docker keys
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+- name: docker repo
+  apt_repository: repo='deb https://get.docker.com/ubuntu docker main'
+
+- name: install docker
+  apt: name=lxc-docker update_cache=yes
+
+- name: add docker group
+  group: name=docker state=present
+
+- name: update ufw to allow forwarding
+  lineinfile: dest=/etc/default/ufw regexp=DEFAULT_FORWARD_POLICY= line=DEFAULT_FORWARD_POLICY="ACCEPT"
+
+- name: reload ufw
+  ufw: state=enabled policy=allow
