@@ -1,0 +1,17 @@
+---
+- name: ensure destination stow exists
+  file: path=/usr/local/stow state=directory owner=root group=root
+
+- name: get the package
+  get_url:
+    url: https://bitbucket.org/ariya/phantomjs/downloads/{{phantom}}.tar.bz2
+    dest: /tmp/{{phantom}}.tar.bz2
+    force: no
+    owner: root
+    group: root
+
+- name: untar the package
+  shell: tar -xjvf /tmp/{{phantom}}.tar.bz2 -C /usr/local/stow creates=/usr/local/stow/{{phantom}}
+
+- name: stow phantomjs
+  shell: stow -R -d /usr/local/stow -t /usr/local {{phantom}}
