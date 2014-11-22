@@ -27,6 +27,9 @@
 - name: initialize git
   command: git config --global user.name "Jon Doveston"
 
+- name: install fail2ban
+  apt: name=fail2ban
+
 - name: install etckeeper
   apt: name=etckeeper
 
