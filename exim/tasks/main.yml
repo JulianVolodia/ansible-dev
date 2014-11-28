@@ -1,0 +1,3 @@
+---
+- name: install exim
+  apt: name=exim4
