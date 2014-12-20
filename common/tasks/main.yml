@@ -21,11 +21,14 @@
 - name: install git
   apt: name=git
 
-- name: initialize git
-  command: git config --global user.email "jon@doveston.me.uk"
+- name: install acl
+  apt: name=acl
 
 - name: initialize git
-  command: git config --global user.name "Jon Doveston"
+  command: git config --global user.email "{{email}}"
+
+- name: initialize git
+  command: git config --global user.name "{{name}}"
 
 - name: install fail2ban
   apt: name=fail2ban

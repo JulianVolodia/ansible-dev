@@ -1,0 +1,16 @@
+---
+- name: key
+  sudo: yes
+  sudo_user: "{{user}}"
+  shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+
+- name: install rvm
+  sudo: yes
+  sudo_user: "{{user}}"
+  shell: curl -L https://get.rvm.io | bash -s stable --autolibs=enabled --ignore-dotfiles creates=~/.rvm
+
+- name: build {{ruby}}
+  sudo: yes
+  sudo_user: "{{user}}"
+  shell: ~/.rvm/bin/rvm install {{ruby}}
+  when: ruby is defined
