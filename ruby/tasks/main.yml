@@ -13,6 +13,7 @@
   with_items:
     - "ruby{{version}}"
     - "ruby{{version}}-dev"
+    - ruby-switch
 
 - name: install bundler
   gem: name=bundler executable=gem{{version}}
