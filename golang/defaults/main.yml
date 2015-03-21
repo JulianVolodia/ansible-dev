@@ -1,0 +1,4 @@
+---
+go_tarball: "go{{ go_version }}.linux-amd64.tar.gz"
+go_version_target: "go version go{{ go_version }} linux/amd64"
+go_download_location: "http://golang.org/dl/{{ go_tarball }}"
